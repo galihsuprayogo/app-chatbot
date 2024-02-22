@@ -1,12 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Chat, Send } from '@/components'
+import { Chat, Loading, Send } from '@/components'
 import { ChatRequestProps } from '@/types'
 import { chatRequest } from './hooks'
 
 export default function RootMain() {
   const [message, setMessage] = useState<string>('')
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [chatHistory, setChatHistory] = useState<ChatRequestProps[]>([])
 
   const handleRequest = async (value: string) => {
@@ -26,12 +27,14 @@ export default function RootMain() {
         { role: 'assistant', content: res.choices[0].message.content! },
       ])
     } catch (error) {
-      alert('Oops, limit request! Please wait for a second.')
+      alert('Oops, Limit chat request! Please wait for a second.')
     }
+    setIsLoading(false)
   }
 
   return (
     <div className='flex h-screen flex-col'>
+      <Loading visible={isLoading ? 'visible' : 'hidden'} />
       <div className='flex-1 flex-grow overflow-y-scroll bg-blue-300 px-5 py-6 md:px-10'>
         <React.Fragment>
           <Chat role='system' content='Hello, How can I assist you today?' />
@@ -50,7 +53,10 @@ export default function RootMain() {
       <Send
         value={message}
         onChange={(value) => setMessage(value)}
-        handleRequest={(value) => handleRequest(value)}
+        handleRequest={(value) => {
+          setIsLoading(true)
+          handleRequest(value)
+        }}
       />
     </div>
   )

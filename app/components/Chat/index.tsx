@@ -20,7 +20,7 @@ const Chat = (props: ChatProps & AvatarProps) => {
       )
     case 'user':
       return (
-        <div className='flex flex-row items-center justify-end space-x-2'>
+        <div className='mb-3 flex flex-row items-center justify-end space-x-2'>
           <span className='rounded-lg bg-blue-500 p-2 text-white shadow'>{props.content}</span>
           <Avatar
             avatar_url={`https://api.multiavatar.com/5.png?apikey=${process.env.NEXT_PUBLIC_AVATAR_URL}`}
