@@ -33,9 +33,9 @@ export default function RootMain() {
   }
 
   return (
-    <div className='flex h-screen flex-col'>
+    <div className='flex h-screen flex-1 bg-blue-300 pb-10'>
       <Loading visible={isLoading ? 'visible' : 'hidden'} />
-      <div className='flex-1 flex-grow overflow-y-scroll bg-blue-300 px-5 py-6 md:px-10'>
+      <div className='flex-1 overflow-y-scroll bg-blue-300 px-5 py-6 md:px-10'>
         <React.Fragment>
           <Chat role='system' content='Hello, How can I assist you today?' />
           {chatHistory.length > 0
