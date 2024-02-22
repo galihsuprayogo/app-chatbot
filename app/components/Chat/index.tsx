@@ -13,7 +13,9 @@ const Chat = (props: ChatProps & AvatarProps) => {
             <Avatar avatar_url='/logo.svg' className={props.className} />
             <span className='font-semibold text-white'>Chatbot Sui-AI</span>
           </div>
-          <span className='rounded-lg bg-white p-2 tracking-normal shadow'>{props.content}</span>
+          <span className='rounded-lg bg-white p-2 font-medium tracking-normal shadow'>
+            {props.content}
+          </span>
         </div>
       )
     case 'user':

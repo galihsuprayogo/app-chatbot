@@ -34,7 +34,7 @@ export default function RootMain() {
     <div className='flex h-screen flex-col'>
       <div className='flex-1 flex-grow overflow-y-scroll bg-blue-300 px-5 py-6 md:px-10'>
         <React.Fragment>
-          <Chat role='system' content='Hi, Can i help you today?' />
+          <Chat role='system' content='Hello, How can I assist you today?' />
           {chatHistory.length > 0
             ? chatHistory.map((item, index) => (
                 <Chat
