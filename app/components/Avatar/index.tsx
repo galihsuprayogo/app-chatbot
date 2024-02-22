@@ -1,12 +1,14 @@
+'use client'
+
 import { AvatarProps } from '@/types'
 import Image from 'next/image'
 
 const Avatar = (props: AvatarProps) => (
   <Image
-    src={`https://api.multiavatar.com/${props?.avatar_url}?apikey=${process.env.NEXT_PUBLIC_AVATAR_URL}`}
+    src={props.avatar_url!}
     alt={`avt-${props.avatar_url}`}
     placeholder='empty'
-    blurDataURL={`https://api.multiavatar.com/${props?.avatar_url}?apikey=${process.env.NEXT_PUBLIC_AVATAR_URL}`}
+    blurDataURL={props.avatar_url}
     height={0}
     width={0}
     sizes='100vw'

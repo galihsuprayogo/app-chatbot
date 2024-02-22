@@ -20,6 +20,7 @@
     "baseUrl": "./app/",
     "paths": {
       "@/*": ["./*"],
+      "@/api/*": ["api/*"],
       "@/components/*": ["components/*"],
       "@/types/*": ["types/*"]
     }

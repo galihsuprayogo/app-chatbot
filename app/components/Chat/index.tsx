@@ -1,25 +1,29 @@
+'use client'
+
 import { Avatar } from '@/components'
 import { AvatarProps, ChatProps } from '@/types'
 
 const Chat = (props: ChatProps & AvatarProps) => {
-  switch (props.method) {
-    case 'get':
+  switch (props.role) {
+    case 'system':
+    case 'assistant':
       return (
-        <div className='mb-5 flex flex-col space-y-3'>
+        <div className='mb-5 flex w-fit flex-col space-y-3'>
           <div className='flex flex-row items-center justify-start space-x-2'>
-            <Avatar avatar_url={props.avatar_url} className={props.className} />
-            <span className='font-semibold text-white'>Chatbot</span>
+            <Avatar avatar_url='/logo.svg' className={props.className} />
+            <span className='font-semibold text-white'>Chatbot Sui-AI</span>
           </div>
-          <div className='max-w-sm rounded-lg bg-white p-2 shadow'>Hi, how can I help you?</div>
+          <span className='rounded-lg bg-white p-2 tracking-normal shadow'>{props.content}</span>
         </div>
       )
-    case 'post':
+    case 'user':
       return (
-        <div className='flex items-center justify-end'>
-          <div className='mr-2 max-w-sm rounded-lg bg-blue-500 p-2 text-white shadow'>
-            I want to ask about...
-          </div>
-          <Avatar avatar_url={props.avatar_url} className={props.className} />
+        <div className='flex flex-row items-center justify-end space-x-2'>
+          <span className='rounded-lg bg-blue-500 p-2 text-white shadow'>{props.content}</span>
+          <Avatar
+            avatar_url={`https://api.multiavatar.com/5.png?apikey=${process.env.NEXT_PUBLIC_AVATAR_URL}`}
+            className={props.className}
+          />
         </div>
       )
     default:

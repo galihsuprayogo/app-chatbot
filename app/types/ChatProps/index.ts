@@ -1,7 +1,6 @@
-type methodChat = 'get' | 'post'
+import { RoleProps } from '@/types'
 
 export default interface ChatProps {
-  body?: string
-  name?: string
-  method?: methodChat
+  content?: string
+  role: RoleProps
 }
