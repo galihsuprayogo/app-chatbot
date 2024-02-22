@@ -5,7 +5,7 @@ const Chat = (props: ChatProps & AvatarProps) => {
   switch (props.method) {
     case 'get':
       return (
-        <div className='mb-5 flex flex-col space-y-2'>
+        <div className='mb-5 flex flex-col space-y-3'>
           <div className='flex flex-row items-center justify-start space-x-2'>
             <Avatar avatar_url={props.avatar_url} className={props.className} />
             <span className='font-semibold text-white'>Chatbot</span>
